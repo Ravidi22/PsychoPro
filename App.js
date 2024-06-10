@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useState } from "react";
+import * as SplashScreen from "expo-splash-screen";
+import Navigation from "./navigation/Navigation";
+import SplashScreenComponent from "./screens/SplashScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [appIsReady, setAppIsReady] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const onReady = useCallback(async () => {
+    setAppIsReady(true);
+    await SplashScreen.hideAsync();
+  }, []);
+
+  if (!appIsReady) {
+    return <SplashScreenComponent onReady={onReady} />;
+  }
+
+  return <Navigation />;
+}
