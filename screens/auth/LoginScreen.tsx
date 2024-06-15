@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import TextField from "../../components/TextField";
+
 interface LoginDetails {
   email: string;
   password: string;
 }
+
 const LoginScreen = ({ navigation }) => {
+  const { handleLogin } = useAuth();
+
   const [loginDetails, setLoginDetails] = useState<LoginDetails>({
     email: "",
     password: "",
   });
-
-  const handleLogin = () => {
-    navigation.navigate("Home");
-  };
 
   return (
     <View style={styles.container}>

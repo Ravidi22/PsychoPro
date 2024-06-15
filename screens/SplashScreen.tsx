@@ -1,8 +1,6 @@
-// SplashScreenComponent.js
 import React, { useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-import * as Font from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
 

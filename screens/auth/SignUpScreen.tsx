@@ -10,17 +10,14 @@ interface SignUpDetails {
 }
 
 const SignUpScreen = ({ navigation }) => {
+  const { handleSignUp } = useAuth(); // change to zustand func
+
   const [signUpDetails, setSignUpDetails] = useState<SignUpDetails>({
     fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
-
-  const handleSignUp = () => {
-    // Handle sign-up logic here
-    navigation.navigate("Home");
-  };
 
   return (
     <View style={styles.container}>
