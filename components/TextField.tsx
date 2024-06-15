@@ -10,30 +10,13 @@ const TextField = (props: TextFieldProps) => {
   return (
     <View style={styles.inputContainer}>
       {props.sideIcon}
-      <TextInput {...props} style={styles.passwordInput} />
+      <TextInput {...props} style={styles.Input} />
       {props.sideIconButton}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  inputGroup: {
-    width: "100%",
-  },
-  label: {
-    marginBottom: 5,
-    fontWeight: "bold",
-    textAlign: "right",
-  },
-  input: {
-    width: "100%",
-    marginVertical: 10,
-    padding: 15,
-    borderWidth: 0,
-    borderColor: "gray",
-    borderRadius: 25,
-    textAlign: "right",
-  },
   inputContainer: {
     flexDirection: "row-reverse",
     alignItems: "center",
@@ -42,15 +25,12 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     borderRadius: 25,
   },
-  passwordInput: {
+  Input: {
     flex: 1,
     padding: 15,
     borderRadius: 25,
     textAlign: "right",
     borderWidth: 0,
-  },
-  icon: {
-    padding: 10,
   },
 });
 

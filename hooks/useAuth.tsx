@@ -1,4 +1,4 @@
-const useAuth = () => {
+export const useAuth = () => {
   const handleLogin = (navigation) => {
     navigation.navigate("Home");
   };
@@ -7,5 +7,9 @@ const useAuth = () => {
     navigation.navigate("Home");
   };
 
-  return { handleLogin, handleSignUp };
+  const sendCode = (email: string): string => {
+    return "111111";
+  };
+
+  return { handleLogin, handleSignUp, sendCode };
 };

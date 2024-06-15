@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import TextField from "../../components/TextField";
+import { commonStyles } from "./Styles";
+import { useAuth } from "../../hooks/useAuth";
 
 interface SignUpDetails {
   fullName: string;
@@ -20,9 +22,9 @@ const SignUpScreen = ({ navigation }) => {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.headerShape} />
-      <Text style={styles.title}>יצירת חשבון</Text>
+    <View style={commonStyles.container}>
+      <View style={commonStyles.headerShape} />
+      <Text style={commonStyles.title}>יצירת חשבון</Text>
       <TextField
         placeholder="שם מלא"
         value={signUpDetails.fullName}
@@ -39,7 +41,7 @@ const SignUpScreen = ({ navigation }) => {
         keyboardType="email-address"
       />
       <TextField
-        style={styles.input}
+        style={commonStyles.input}
         placeholder="סיסמה"
         value={signUpDetails.password}
         onChangeText={(value) =>
@@ -55,13 +57,13 @@ const SignUpScreen = ({ navigation }) => {
         }
         secureTextEntry
       />
-      <TouchableOpacity onPress={handleSignUp} style={styles.button}>
-        <Text style={styles.buttonText}>הרשמה</Text>
+      <TouchableOpacity onPress={handleSignUp} style={commonStyles.button}>
+        <Text style={commonStyles.buttonText}>הרשמה</Text>
       </TouchableOpacity>
-      <Text style={styles.signInText}>
+      <Text style={commonStyles.geryText}>
         כבר יש משתמש?{" "}
         <Text
-          style={styles.signInLink}
+          style={commonStyles.link}
           onPress={() => navigation.navigate("Login")}
         >
           התחברות
@@ -70,57 +72,5 @@ const SignUpScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 16,
-    backgroundColor: "#fff",
-  },
-  headerShape: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    width: 100,
-    height: 100,
-    backgroundColor: "#FFA726",
-    borderBottomLeftRadius: 50,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  input: {
-    width: "100%",
-    padding: 10,
-    marginVertical: 10,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
-  },
-  button: {
-    backgroundColor: "#FFA726",
-    maxWidth: "40%",
-    padding: 15,
-    borderRadius: 25,
-    alignItems: "center",
-    marginTop: 20,
-  },
-  buttonText: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-  signInText: {
-    marginTop: 20,
-    color: "gray",
-    textAlign: "center",
-  },
-  signInLink: {
-    color: "#FFA726",
-    fontWeight: "bold",
-  },
-});
 
 export default SignUpScreen;
