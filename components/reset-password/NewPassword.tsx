@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
-import { commonStyles } from "../../Styles";
-import TextField from "../../../../components/TextField";
+import TextField from "../TextField";
+import { commonStyles } from "@/styles/commonStyles";
 
 interface NewPasswordDetails {
   password: string;
   confirmPassword: string;
 }
 
-const NewPassword = ({ navigation }) => {
+const NewPassword = () => {
   const [passwordDetails, setPasswordDetails] = useState<NewPasswordDetails>({
     password: "",
     confirmPassword: "",

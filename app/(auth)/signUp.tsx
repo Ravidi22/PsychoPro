@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import TextField from "../../components/TextField";
-import { commonStyles } from "./Styles";
-import { useAuth } from "../../hooks/useAuth";
+import { StyleSheet, TouchableOpacity } from "react-native";
+
+import EditScreenInfo from "@/components/EditScreenInfo";
+import { Text, View } from "@/components/Themed";
+import TextField from "@/components/TextField";
+import { useState } from "react";
+import { commonStyles } from "@/styles/commonStyles";
+import { useRouter } from "expo-router";
 
 interface SignUpDetails {
   fullName: string;
@@ -11,8 +14,8 @@ interface SignUpDetails {
   confirmPassword: string;
 }
 
-const SignUpScreen = ({ navigation }) => {
-  const { handleSignUp } = useAuth(); // change to zustand func
+export default function TabTwoScreen() {
+  const router = useRouter();
 
   const [signUpDetails, setSignUpDetails] = useState<SignUpDetails>({
     fullName: "",
@@ -57,20 +60,35 @@ const SignUpScreen = ({ navigation }) => {
         }
         secureTextEntry
       />
-      <TouchableOpacity onPress={handleSignUp} style={commonStyles.button}>
+      <TouchableOpacity onPress={() => {}} style={commonStyles.button}>
         <Text style={commonStyles.buttonText}>הרשמה</Text>
       </TouchableOpacity>
       <Text style={commonStyles.geryText}>
         כבר יש משתמש?{" "}
         <Text
           style={commonStyles.link}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => router.replace("/(auth)/login")}
         >
           התחברות
         </Text>
       </Text>
     </View>
   );
-};
+}
 
-export default SignUpScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: "80%",
+  },
+});

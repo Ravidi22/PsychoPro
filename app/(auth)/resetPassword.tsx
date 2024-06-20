@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-import TextField from "../../../components/TextField";
-import { commonStyles } from "../Styles";
-import SubmitCode from "./sections/SubmitCode";
-import NewPassword from "./sections/NewPassword";
+import TextField from "@/components/TextField";
+import NewPassword from "@/components/reset-password/NewPassword";
+import SubmitCode from "@/components/reset-password/SubmitCode";
+import { commonStyles } from "@/styles/commonStyles";
+import { useState } from "react";
+import { View, TouchableOpacity, Text } from "react-native";
 
-const ResetPasswordScreen = ({ navigation }) => {
+export default function ResetPasswordScreen() {
   const [email, setEmail] = useState<string>("");
 
   const [isCodeSent, setIsCodeSent] = useState<boolean>(false);
@@ -38,16 +38,10 @@ const ResetPasswordScreen = ({ navigation }) => {
       )}
 
       {isCodeSent && !isValidCode && (
-        <SubmitCode
-          navigation={navigation}
-          email={email}
-          setIsValidCode={setIsValidCode}
-        />
+        <SubmitCode email={email} setIsValidCode={setIsValidCode} />
       )}
 
-      {isValidCode && <NewPassword navigation={navigation} />}
+      {isValidCode && <NewPassword />}
     </View>
   );
-};
-
-export default ResetPasswordScreen;
+}

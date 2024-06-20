@@ -1,7 +1,7 @@
 {
   "name": "psychopro",
   "version": "1.0.0",
-  "main": "expo/AppEntry.js",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -10,20 +10,24 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
+    "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "@types/react": "~18.2.79",
     "expo": "~51.0.11",
+    "expo-router": "^3.5.16",
+    "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
+    "expo-web-browser": "^13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.2",
+    "react-native-reanimated": "^3.12.1",
     "react-native-vector-icons": "^10.1.0",
     "react-native-web": "~0.19.10",
     "styled-components": "^6.1.11",
     "typescript": "~5.3.3",
-    "zustand": "^4.5.2",
-    "expo-splash-screen": "~0.27.5"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
