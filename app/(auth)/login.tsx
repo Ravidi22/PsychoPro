@@ -3,8 +3,8 @@ import { Text, View } from "@/components/Themed";
 import TextField from "@/components/TextField";
 import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";
-import { useAuth } from "@/context/auth";
 import { useRouter } from "expo-router";
+import { useAuthStore } from "@/store/useAuthStore";
 
 interface LoginDetails {
   email: string;
@@ -12,7 +12,7 @@ interface LoginDetails {
 }
 
 export default function LoginScreen() {
-  const { signIn } = useAuth();
+  const { signIn } = useAuthStore();
   const router = useRouter();
 
   const [loginDetails, setLoginDetails] = useState<LoginDetails>({

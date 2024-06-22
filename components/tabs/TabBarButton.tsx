@@ -10,7 +10,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 interface TabBarButtonProps {
   key: string;
-  style: CssProps;
+  style: any;
   onPress: () => void;
   onLongPress: () => void;
   isFocused: boolean;
@@ -49,10 +49,13 @@ const TabBarButton = (props: TabBarButtonProps) => {
   });
 
   const icons = {
-    index: (props) => (
+    index: (props: any) => (
       <AntDesign name="home" size={26} color={"#737373"} {...props} />
     ),
-    practice: (props) => (
+    practice: (props: any) => (
+      <AntDesign name="edit" size={26} color={"#737373"} {...props} />
+    ),
+    learn: (props: any) => (
       <AntDesign name="book" size={26} color={"#737373"} {...props} />
     ),
   };

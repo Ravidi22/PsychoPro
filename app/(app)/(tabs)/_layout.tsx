@@ -1,11 +1,9 @@
 import React from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
-
+import { Tabs } from "expo-router";
 import Colors from "@/constants/Colors";
-import { useColorScheme } from "@/components/useColorScheme";
-import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { useClientOnlyValue } from "@/hooks/useClientOnlyValue";
 import TabBar from "@/components/tabs/TabBar";
 
 function TabBarIcon(props: {
@@ -27,6 +25,14 @@ export default function TabLayout() {
       tabBar={(props) => <TabBar {...props} />}
     >
       <Tabs.Screen
+        name="practice"
+        options={{
+          title: "תרגול",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: "בית",
@@ -35,9 +41,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="practice"
+        name="learn"
         options={{
-          title: "תרגול",
+          title: "למידה",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerShown: false,
         }}
