@@ -1,13 +1,23 @@
-import { create } from "zustand";
+import create from "zustand";
+
+interface User {
+  name: string;
+  rank: number;
+}
 
 interface AuthState {
-  user: string | undefined;
+  user: User | undefined;
   signIn: () => void;
   signOut: () => void;
+  setRank: (newRank: number) => void;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  user: "",
-  signIn: () => set({ user: "רביד" }),
-  signOut: () => set({ user: "" }),
+  user: undefined,
+  signIn: () => set({ user: { name: "רביד", rank: 0 } }),
+  signOut: () => set({ user: undefined }),
+  setRank: (newRank: number) =>
+    set((state) => ({
+      user: state.user ? { ...state.user, rank: newRank } : undefined,
+    })),
 }));

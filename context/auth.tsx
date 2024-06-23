@@ -8,13 +8,12 @@ export function AuthProvider({ children }: React.PropsWithChildren) {
   const { user } = useAuthStore();
 
   React.useEffect(() => {
-    if (user === undefined) return;
     if (!user && rootSegment !== "(auth)") {
       router.replace("/(auth)/login");
     } else if (user && rootSegment !== "(app)") {
       router.replace("/");
     }
-  }, [user, rootSegment]);
+  }, [user, rootSegment, router]);
 
   return <>{children}</>;
 }

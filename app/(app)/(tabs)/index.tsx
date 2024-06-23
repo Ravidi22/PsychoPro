@@ -2,9 +2,10 @@ import { ScrollView, StyleSheet, Text } from "react-native";
 
 import { View } from "@/components/Themed";
 import { useAuthStore } from "@/store/useAuthStore";
+import RankModal from "../../../components/InitialRankModal";
 
 export default function HomeScreen() {
-  const user = useAuthStore();
+  const { user } = useAuthStore();
 
   return (
     <ScrollView style={styles.container}>
@@ -13,7 +14,8 @@ export default function HomeScreen() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Text style={styles.title}>{`שלום ${user.user}`}</Text>
+      <RankModal />
+      <Text style={styles.title}>{`שלום ${user?.name}`}</Text>
       {[1, 0.8, 0.5].map((opacity) => (
         <View
           key={opacity}
