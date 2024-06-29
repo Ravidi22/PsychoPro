@@ -1,15 +1,10 @@
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
 import { Slot } from "expo-router";
 import "react-native-reanimated";
 
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { AuthProvider } from "@/context/auth";
 import SplashScreen from "./(auth)/splash";
 import useSplashScreen from "@/hooks/useSplashScreen";
+import { ThemeProvider } from "@/context/theme";
 
 export default function RootLayout() {
   const isSplashVisible = useSplashScreen();
@@ -22,11 +17,9 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
     <AuthProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <ThemeProvider>
         <Slot />
       </ThemeProvider>
     </AuthProvider>

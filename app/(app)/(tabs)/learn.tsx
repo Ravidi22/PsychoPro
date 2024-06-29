@@ -1,6 +1,5 @@
+import { View } from "@/components/theme/Themed";
 import { StyleSheet } from "react-native";
-
-import { View } from "@/components/Themed";
 
 export default function LearnScreen() {
   return (

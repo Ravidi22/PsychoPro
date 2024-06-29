@@ -1,5 +1,5 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
-import { Text, View } from "@/components/Themed";
+import { TouchableOpacity } from "react-native";
+import { Text, View } from "@/components/theme/Themed";
 import TextField from "@/components/TextField";
 import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";

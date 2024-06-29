@@ -1,27 +1,22 @@
-import { ScrollView, StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 
-import { View } from "@/components/Themed";
-import { useAuthStore } from "@/store/useAuthStore";
-import RankModal from "../../../components/InitialRankModal";
+import RankModal from "@/components/InitialRankModal";
+import HomeHeader from "@/components/screens/home/HomeHeader";
+import React from "react";
+import HomeBody from "@/components/screens/home/HomeBody";
 
 export default function HomeScreen() {
-  const { user } = useAuthStore();
-
   return (
     <ScrollView style={styles.container}>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
       <RankModal />
-      <Text style={styles.title}>{`שלום ${user?.name}`}</Text>
-      {[1, 0.8, 0.5].map((opacity) => (
+      <HomeHeader />
+      <HomeBody />
+      {/* {[1, 0.8, 0.5].map((opacity) => (
         <View
           key={opacity}
           style={[styles.color, { backgroundColor: "#FFA726", opacity }]}
         ></View>
-      ))}
+      ))} */}
     </ScrollView>
   );
 }
@@ -36,6 +31,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 15,
+  },
+  subTitle: {
+    fontSize: 18,
+    marginBottom: 15,
+  },
+  themeBtn: {
+    position: "absolute",
+    top: 10,
+    right: 0,
+    borderRadius: 5,
+    backgroundColor: "red",
   },
   separator: {
     marginVertical: 30,
