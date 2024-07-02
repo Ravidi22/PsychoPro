@@ -1,13 +1,14 @@
+import { Subject } from "@/store/useSelectedSubjectStore";
 import { View, Text, StyleSheet } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 
 interface SubjectStatisticProps {
-  subject: string;
+  subject: Subject;
 }
 const SubjectStatistic = (props: SubjectStatisticProps) => {
   return (
     <View>
-      <Text style={styles.title}>{props.subject}</Text>
+      <Text style={styles.title}>{props.subject.label}</Text>
       <PieChart
         data={[
           { value: 70, color: "#FFA726" },

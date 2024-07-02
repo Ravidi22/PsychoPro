@@ -24,6 +24,7 @@ const ThemeToggle = () => {
 const styles = StyleSheet.create({
   themeBtn: {
     borderRadius: 5,
+    paddingHorizontal: 10,
   },
 });
 

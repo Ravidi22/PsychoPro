@@ -1,50 +1,44 @@
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 import { useAuthStore } from "@/store/useAuthStore";
-import SidePanel from "./sections/SidePanel";
 import SubjectStatistic from "./sections/SubjectStatistic";
-import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
+import TileItem from "@/components/TileItem";
+import { useSelectedSubjectStore } from "@/store/useSelectedSubjectStore";
+import Tile from "@/components/Tile";
+import Typography from "@/components/Typography";
 
 const HomeBody = () => {
   const { user } = useAuthStore();
   const router = useRouter();
 
-  const [selectedSubject, setSelectedSubjuct] = useState("");
+  const { selectedSubject, setSelectedSubject } = useSelectedSubjectStore();
 
   return (
-    <View style={styles.container}>
-      <SidePanel subjects={["1", "2", "3"]} onSelect={setSelectedSubjuct} />
-      {selectedSubject ? (
-        <SubjectStatistic subject={selectedSubject} />
-      ) : (
-        <View style={styles.container}>
-          <Text style={styles.subTitle}>
-            נראה שעדיין לא התחלת לתרגל. מוכן להתחיל ולשפר את הכישורים שלך?{" "}
-          </Text>
-          <TouchableOpacity
-            onPress={() => router.replace("/(tabs)/practice")}
-            style={commonStyles.button}
-          >
-            <Text style={commonStyles.buttonText}>בוא נתחיל!</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-    </View>
+    <Tile style={{ borderRadius: 20 }}>
+      {/* <SidePanel
+        subjects={Categories.map((category) => category.label)}
+        onSelect={setSelectedSubjuct}
+      /> */}
+      <TileItem column>
+        {selectedSubject && <SubjectStatistic subject={selectedSubject} />}
+        {!selectedSubject && (
+          <>
+            <Typography bold size={18}>
+              נראה שעדיין לא התחלת לתרגל. מוכן להתחיל ולשפר את הכישורים שלך?{" "}
+            </Typography>
+            <TouchableOpacity
+              onPress={() => router.replace("/(tabs)/practice")}
+              style={commonStyles.button}
+            >
+              <Typography bold>בוא נתחיל!</Typography>
+            </TouchableOpacity>
+          </>
+        )}
+      </TileItem>
+    </Tile>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    alignContent: "center",
-    justifyContent: "center",
-  },
-  subTitle: {
-    fontSize: 18,
-    marginBottom: 15,
-  },
-});
 
 export default HomeBody;

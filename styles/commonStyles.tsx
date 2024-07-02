@@ -46,7 +46,7 @@ export const commonStyles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  geryText: {
+  greyText: {
     marginTop: 20,
     color: "gray",
     textAlign: "center",

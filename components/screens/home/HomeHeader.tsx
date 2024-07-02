@@ -1,32 +1,37 @@
 import { StyleSheet, View } from "react-native";
-
 import ThemeToggle from "@/components/theme/ThemeToggle";
-import { Text } from "@/components/theme/Themed";
 import { useAuthStore } from "@/store/useAuthStore";
 import Divider from "@/components/Divider";
+import Tile from "@/components/Tile";
+import Typography from "@/components/Typography";
+import SubjectScrollList from "./sections/SubjectScrollList";
 
 const HomeHeader = () => {
   const { user } = useAuthStore();
 
   return (
-    <View style={{ alignItems: "flex-end" }}>
-      <ThemeToggle />
-      <Text style={styles.title}>{`שלום ${user?.name}.`}</Text>
-      <Text style={styles.subTitle}>{`אלו הנתונים שלך בתרגיל האחרון:`}</Text>
+    <Tile style={styles.container}>
+      <View style={styles.rowContainer}>
+        <ThemeToggle />
+        <Typography bold size={20}>{`שלום ${user?.name}`}</Typography>
+      </View>
       <Divider />
-    </View>
+      <SubjectScrollList />
+    </Tile>
   );
 };
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginVertical: 15,
+  container: {
+    backgroundColor: "white",
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    marginHorizontal: 0,
   },
-  subTitle: {
-    fontSize: 18,
-    marginBottom: 15,
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
 

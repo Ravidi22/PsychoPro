@@ -4,15 +4,17 @@ import TextField from "@/components/TextField";
 import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
+import { useAuth } from "@/hooks/useAuth";
 
-interface SignUpDetails {
+export interface SignUpDetails {
   fullName: string;
   email: string;
   password: string;
   confirmPassword: string;
 }
 
-export default function TabTwoScreen() {
+export default function SignUpScreen() {
+  const { handleSignUp } = useAuth();
   const router = useRouter();
 
   const [signUpDetails, setSignUpDetails] = useState<SignUpDetails>({
@@ -58,10 +60,13 @@ export default function TabTwoScreen() {
         }
         secureTextEntry
       />
-      <TouchableOpacity onPress={() => {}} style={commonStyles.button}>
+      <TouchableOpacity
+        onPress={() => handleSignUp(signUpDetails)}
+        style={commonStyles.button}
+      >
         <Text style={commonStyles.buttonText}>הרשמה</Text>
       </TouchableOpacity>
-      <Text style={commonStyles.geryText}>
+      <Text style={commonStyles.greyText}>
         כבר יש משתמש?{" "}
         <Text
           style={commonStyles.link}

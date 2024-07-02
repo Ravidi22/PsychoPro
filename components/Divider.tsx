@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ViewStyle } from "react-native";
+import { StyleSheet } from "react-native";
 import { View } from "@/components/theme/Themed";
 
 const Divider = () => {
@@ -14,9 +14,9 @@ const Divider = () => {
 
 const styles = StyleSheet.create({
   separator: {
-    marginVertical: 30,
+    marginVertical: 5,
     height: 1,
-    width: "80%",
+    width: "100%",
   },
 });
 

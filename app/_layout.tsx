@@ -5,6 +5,8 @@ import { AuthProvider } from "@/context/auth";
 import SplashScreen from "./(auth)/splash";
 import useSplashScreen from "@/hooks/useSplashScreen";
 import { ThemeProvider } from "@/context/theme";
+import { Provider as PaperProvider } from "react-native-paper";
+import Snackbar from "@/components/Snackbar";
 
 export default function RootLayout() {
   const isSplashVisible = useSplashScreen();
@@ -18,10 +20,13 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <AuthProvider>
-      <ThemeProvider>
-        <Slot />
-      </ThemeProvider>
-    </AuthProvider>
+    <PaperProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <Slot />
+          <Snackbar />
+        </ThemeProvider>
+      </AuthProvider>
+    </PaperProvider>
   );
 }

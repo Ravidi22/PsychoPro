@@ -5,14 +5,16 @@ import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
 import { useAuthStore } from "@/store/useAuthStore";
+import { useAuth } from "@/hooks/useAuth";
+import Typography from "@/components/Typography";
 
-interface LoginDetails {
+export interface LoginDetails {
   email: string;
   password: string;
 }
 
 export default function LoginScreen() {
-  const { signIn } = useAuthStore();
+  const { handleLogin } = useAuth();
   const router = useRouter();
 
   const [loginDetails, setLoginDetails] = useState<LoginDetails>({
@@ -23,7 +25,9 @@ export default function LoginScreen() {
   return (
     <View style={commonStyles.container}>
       <View style={commonStyles.headerShape} />
-      <Text style={commonStyles.title}>התחברות</Text>
+      <Typography bold size={24} style={{ marginBottom: 8 }}>
+        התחברות
+      </Typography>
       <TextField
         placeholder="אימייל"
         value={loginDetails.email}
@@ -41,24 +45,31 @@ export default function LoginScreen() {
         }
         secureTextEntry
       />
-      <Text
-        style={{ ...commonStyles.link, textAlign: "center" }}
+      <Typography
+        bold
+        style={{ color: "#FFA726", textAlign: "center" }}
         onPress={() => router.replace("/(auth)/resetPassword")}
       >
         איפוס סיסמה
-      </Text>
-      <TouchableOpacity onPress={signIn} style={commonStyles.button}>
-        <Text style={commonStyles.buttonText}>התחברות</Text>
+      </Typography>
+      <TouchableOpacity
+        onPress={() => handleLogin(loginDetails)}
+        style={commonStyles.button}
+      >
+        <Typography bold light>
+          התחברות
+        </Typography>
       </TouchableOpacity>
-      <Text style={commonStyles.geryText}>
+      <Typography style={commonStyles.greyText}>
         אין לך חשבון?{" "}
-        <Text
-          style={commonStyles.link}
+        <Typography
+          bold
+          style={{ color: "#FFA726" }}
           onPress={() => router.replace("/(auth)/signUp")}
         >
           הרשמה
-        </Text>
-      </Text>
+        </Typography>
+      </Typography>
     </View>
   );
 }
