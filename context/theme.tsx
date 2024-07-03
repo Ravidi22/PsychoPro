@@ -1,7 +1,9 @@
+import { darkTheme, lightTheme } from "@/components/theme/themes";
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components/native";
 
 type Theme = {
+  primary: string;
+  secondary: string;
   background: string;
   text: string;
 };
@@ -9,16 +11,6 @@ type Theme = {
 type ThemeContextType = {
   theme: Theme;
   toggleTheme: () => void;
-};
-
-const lightTheme: Theme = {
-  background: "#fff",
-  text: "#000",
-};
-
-const darkTheme: Theme = {
-  background: "#000",
-  text: "#fff",
 };
 
 const ThemeContext = createContext<ThemeContextType>({
@@ -41,7 +33,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
+      {children}
     </ThemeContext.Provider>
   );
 };

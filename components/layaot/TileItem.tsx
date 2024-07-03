@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
-import { View } from "./theme/Themed";
-import { StyleSheet, TextStyle, ViewStyle } from "react-native";
+import { StyleSheet, TextStyle, View, ViewStyle } from "react-native";
+import { useTheme } from "@/context/theme";
 
 interface TileItemProps extends PropsWithChildren {
   column?: boolean;
@@ -8,12 +8,14 @@ interface TileItemProps extends PropsWithChildren {
 }
 
 const TileItem = (props: TileItemProps) => {
+  const { theme } = useTheme();
+
   const styles = StyleSheet.create({
     container: {
       padding: 10,
       alignContent: "center",
       justifyContent: "center",
-      backgroundColor: "#fff",
+      backgroundColor: theme.secondary,
       flexDirection: props.column ? "column" : "row",
       ...props.style,
       borderRadius: 20,

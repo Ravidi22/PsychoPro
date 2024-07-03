@@ -1,4 +1,6 @@
+import Button from "@/components/Button";
 import TextField from "@/components/TextField";
+import Typography from "@/components/Typography";
 import NewPassword from "@/components/reset-password/NewPassword";
 import SubmitCode from "@/components/reset-password/SubmitCode";
 import { commonStyles } from "@/styles/commonStyles";
@@ -15,10 +17,12 @@ export default function ResetPasswordScreen() {
   return (
     <View style={commonStyles.container}>
       <View style={commonStyles.headerShape} />
-      <Text style={commonStyles.title}>איפוס סיסמה</Text>
+      <Typography bold style={{ marginBottom: 8 }}>
+        איפוס סיסמה
+      </Typography>
       {!isCodeSent && (
         <>
-          <Text style={commonStyles.geryText}>
+          <Text style={commonStyles.greyText}>
             נדרש אימות. אנה הזינו את כתובת המייל שלכם.
           </Text>
           <TextField
@@ -28,12 +32,9 @@ export default function ResetPasswordScreen() {
             keyboardType="email-address"
             inlineImageLeft="mail"
           />
-          <TouchableOpacity
-            onPress={() => setIsCodeSent(true)}
-            style={commonStyles.button}
-          >
-            <Text style={commonStyles.buttonText}>שלח</Text>
-          </TouchableOpacity>
+          <Button onPress={() => setIsCodeSent(true)}>
+            <Typography bold>שלח</Typography>
+          </Button>
         </>
       )}
 

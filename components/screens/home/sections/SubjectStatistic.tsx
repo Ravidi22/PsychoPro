@@ -1,3 +1,4 @@
+import Typography from "@/components/Typography";
 import { Subject } from "@/store/useSelectedSubjectStore";
 import { View, Text, StyleSheet } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
@@ -8,7 +9,9 @@ interface SubjectStatisticProps {
 const SubjectStatistic = (props: SubjectStatisticProps) => {
   return (
     <View>
-      <Text style={styles.title}>{props.subject.label}</Text>
+      <Typography bold size={20}>
+        {props.subject.label}
+      </Typography>
       <PieChart
         data={[
           { value: 70, color: "#FFA726" },
@@ -18,19 +21,11 @@ const SubjectStatistic = (props: SubjectStatisticProps) => {
         innerRadius={60}
         radius={100}
         centerLabelComponent={() => {
-          return <Text style={{ fontSize: 20 }}>70%</Text>;
+          return <Typography size={20}>70%</Typography>;
         }}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginVertical: 15,
-  },
-});
 
 export default SubjectStatistic;

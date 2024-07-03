@@ -1,12 +1,12 @@
-import { TouchableOpacity } from "react-native";
-import { Text, View } from "@/components/theme/Themed";
 import TextField from "@/components/TextField";
 import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
-import { useAuthStore } from "@/store/useAuthStore";
 import { useAuth } from "@/hooks/useAuth";
 import Typography from "@/components/Typography";
+import Tile from "@/components/layaot/Tile";
+import Button from "@/components/Button";
+import { View } from "react-native";
 
 export interface LoginDetails {
   email: string;
@@ -23,7 +23,7 @@ export default function LoginScreen() {
   });
 
   return (
-    <View style={commonStyles.container}>
+    <Tile>
       <View style={commonStyles.headerShape} />
       <Typography bold size={24} style={{ marginBottom: 8 }}>
         התחברות
@@ -52,14 +52,9 @@ export default function LoginScreen() {
       >
         איפוס סיסמה
       </Typography>
-      <TouchableOpacity
-        onPress={() => handleLogin(loginDetails)}
-        style={commonStyles.button}
-      >
-        <Typography bold light>
-          התחברות
-        </Typography>
-      </TouchableOpacity>
+      <Button onPress={() => handleLogin(loginDetails)}>
+        <Typography bold>התחברות</Typography>
+      </Button>
       <Typography style={commonStyles.greyText}>
         אין לך חשבון?{" "}
         <Typography
@@ -70,6 +65,6 @@ export default function LoginScreen() {
           הרשמה
         </Typography>
       </Typography>
-    </View>
+    </Tile>
   );
 }

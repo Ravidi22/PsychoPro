@@ -1,10 +1,12 @@
-import { TouchableOpacity } from "react-native";
-import { Text, View } from "@/components/theme/Themed";
 import TextField from "@/components/TextField";
 import { useState } from "react";
 import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
 import { useAuth } from "@/hooks/useAuth";
+import Tile from "@/components/layaot/Tile";
+import Typography from "@/components/Typography";
+import Button from "@/components/Button";
+import { View } from "react-native";
 
 export interface SignUpDetails {
   fullName: string;
@@ -25,9 +27,11 @@ export default function SignUpScreen() {
   });
 
   return (
-    <View style={commonStyles.container}>
+    <Tile>
       <View style={commonStyles.headerShape} />
-      <Text style={commonStyles.title}>יצירת חשבון</Text>
+      <Typography bold size={24} style={{ marginBottom: 8 }}>
+        יצירת חשבון
+      </Typography>
       <TextField
         placeholder="שם מלא"
         value={signUpDetails.fullName}
@@ -60,21 +64,19 @@ export default function SignUpScreen() {
         }
         secureTextEntry
       />
-      <TouchableOpacity
-        onPress={() => handleSignUp(signUpDetails)}
-        style={commonStyles.button}
-      >
-        <Text style={commonStyles.buttonText}>הרשמה</Text>
-      </TouchableOpacity>
-      <Text style={commonStyles.greyText}>
+      <Button onPress={() => handleSignUp(signUpDetails)}>
+        <Typography bold>הרשמה</Typography>
+      </Button>
+      <Typography style={commonStyles.greyText}>
         כבר יש משתמש?{" "}
-        <Text
-          style={commonStyles.link}
+        <Typography
+          bold
+          style={{ color: "#FFA726" }}
           onPress={() => router.replace("/(auth)/login")}
         >
           התחברות
-        </Text>
-      </Text>
-    </View>
+        </Typography>
+      </Typography>
+    </Tile>
   );
 }

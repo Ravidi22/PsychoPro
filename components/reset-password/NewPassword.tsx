@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import TextField from "../TextField";
 import { commonStyles } from "@/styles/commonStyles";
+import TileItem from "../layaot/TileItem";
+import Button from "../Button";
+import Typography from "../Typography";
 
 interface NewPasswordDetails {
   password: string;
@@ -15,7 +18,7 @@ const NewPassword = () => {
   });
 
   return (
-    <View>
+    <TileItem column>
       <TextField
         placeholder="סיסמה"
         value={passwordDetails.password}
@@ -32,10 +35,10 @@ const NewPassword = () => {
         }
         secureTextEntry
       />
-      <TouchableOpacity onPress={() => {}} style={commonStyles.button}>
-        <Text style={commonStyles.buttonText}>אפס</Text>
-      </TouchableOpacity>
-    </View>
+      <Button onPress={() => {}} style={commonStyles.button}>
+        <Typography bold>אפס</Typography>
+      </Button>
+    </TileItem>
   );
 };
 

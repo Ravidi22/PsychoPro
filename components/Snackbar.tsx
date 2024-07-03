@@ -22,7 +22,7 @@ const Snackbar = () => {
             : "#323232",
       }}
     >
-      <Typography light>{message}</Typography>
+      <Typography>{message}</Typography>
     </ReactSnackbar>
   );
 };

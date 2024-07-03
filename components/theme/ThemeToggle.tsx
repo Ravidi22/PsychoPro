@@ -2,20 +2,17 @@ import { TouchableOpacity, StyleSheet } from "react-native";
 
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTheme } from "@/context/theme";
+import { darkTheme } from "./themes";
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <TouchableOpacity style={styles.themeBtn} onPress={toggleTheme}>
-      {theme.background === "#fff" ? (
-        <Ionicons name="moon-sharp" color={"black"} size={25} />
+      {theme === darkTheme ? (
+        <Ionicons name="moon-sharp" color={"white"} size={25} />
       ) : (
-        <MaterialCommunityIcons
-          name="white-balance-sunny"
-          size={25}
-          color="black"
-        />
+        <MaterialCommunityIcons name="white-balance-sunny" size={25} />
       )}
     </TouchableOpacity>
   );

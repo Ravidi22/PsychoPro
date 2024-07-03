@@ -2,19 +2,20 @@ import { StyleSheet, View } from "react-native";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import { useAuthStore } from "@/store/useAuthStore";
 import Divider from "@/components/Divider";
-import Tile from "@/components/Tile";
+import Tile from "@/components/layaot/Tile";
 import Typography from "@/components/Typography";
 import SubjectScrollList from "./sections/SubjectScrollList";
+import TileItem from "@/components/layaot/TileItem";
 
 const HomeHeader = () => {
   const { user } = useAuthStore();
 
   return (
-    <Tile style={styles.container}>
-      <View style={styles.rowContainer}>
+    <Tile>
+      <TileItem style={{ justifyContent: "space-between" }}>
         <ThemeToggle />
         <Typography bold size={20}>{`שלום ${user?.name}`}</Typography>
-      </View>
+      </TileItem>
       <Divider />
       <SubjectScrollList />
     </Tile>

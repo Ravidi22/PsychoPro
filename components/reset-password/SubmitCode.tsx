@@ -9,6 +9,9 @@ import {
   NativeSyntheticEvent,
   TextInputKeyPressEventData,
 } from "react-native";
+import Typography from "../Typography";
+import Button from "../Button";
+import TileItem from "../layaot/TileItem";
 
 interface SubmitCodeProps {
   email: string;
@@ -51,7 +54,7 @@ const SubmitCode = (props: SubmitCodeProps) => {
   };
 
   return (
-    <View>
+    <TileItem column>
       <View
         style={{
           alignItems: "center",
@@ -72,20 +75,17 @@ const SubmitCode = (props: SubmitCodeProps) => {
           ))}
         </View>
       </View>
-      <TouchableOpacity
-        onPress={() => props.setIsValidCode(true)}
-        style={commonStyles.button}
-      >
-        <Text style={commonStyles.buttonText}>שלח</Text>
-      </TouchableOpacity>
+      <Button onPress={() => props.setIsValidCode(true)}>
+        <Typography bold>שלח</Typography>
+      </Button>
 
-      <Text style={commonStyles.geryText}>
+      <Typography style={commonStyles.greyText}>
         לא קיבלתי{" "}
-        <Text style={commonStyles.link} onPress={() => {}}>
+        <Typography bold style={{ color: "#FFA726" }} onPress={() => {}}>
           שליחה חוזרת
-        </Text>
-      </Text>
-    </View>
+        </Typography>
+      </Typography>
+    </TileItem>
   );
 };
 
