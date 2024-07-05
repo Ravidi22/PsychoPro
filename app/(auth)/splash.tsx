@@ -1,27 +1,17 @@
+import BackgroundScreen from "@/components/BackGround";
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { Image, View } from "react-native";
 
 export default function SplashScreen() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require("../../assets/images/splash.png")}
-        style={styles.image}
-        resizeMode="contain"
-      />
-    </View>
+    <BackgroundScreen>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Image
+          source={require("../../assets/images/snail.png")}
+          style={{ width: "90%", height: "90%" }}
+          resizeMode="contain"
+        />
+      </View>
+    </BackgroundScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFA726",
-  },
-  image: {
-    width: "80%",
-    height: "80%",
-  },
-});

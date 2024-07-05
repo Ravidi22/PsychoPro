@@ -1,12 +1,13 @@
 import TextField from "@/components/TextField";
 import { useState } from "react";
-import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
 import { useAuth } from "@/hooks/useAuth";
 import Typography from "@/components/Typography";
 import Tile from "@/components/layaot/Tile";
 import Button from "@/components/Button";
-import { View } from "react-native";
+import { HeaderShape } from "@/components/HeaderShape";
+import { StyleSheet } from "react-native";
+import { useTheme } from "@/context/theme";
 
 export interface LoginDetails {
   email: string;
@@ -15,6 +16,7 @@ export interface LoginDetails {
 
 export default function LoginScreen() {
   const { handleLogin } = useAuth();
+  const { theme } = useTheme();
   const router = useRouter();
 
   const [loginDetails, setLoginDetails] = useState<LoginDetails>({
@@ -24,7 +26,7 @@ export default function LoginScreen() {
 
   return (
     <Tile>
-      <View style={commonStyles.headerShape} />
+      <HeaderShape />
       <Typography bold size={24} style={{ marginBottom: 8 }}>
         התחברות
       </Typography>
@@ -47,7 +49,7 @@ export default function LoginScreen() {
       />
       <Typography
         bold
-        style={{ color: "#FFA726", textAlign: "center" }}
+        style={{ color: theme.secondary, textAlign: "center" }}
         onPress={() => router.replace("/(auth)/resetPassword")}
       >
         איפוס סיסמה
@@ -55,11 +57,11 @@ export default function LoginScreen() {
       <Button onPress={() => handleLogin(loginDetails)}>
         <Typography bold>התחברות</Typography>
       </Button>
-      <Typography style={commonStyles.greyText}>
+      <Typography style={styles.greyText}>
         אין לך חשבון?{" "}
         <Typography
           bold
-          style={{ color: "#FFA726" }}
+          style={{ color: theme.secondary }}
           onPress={() => router.replace("/(auth)/signUp")}
         >
           הרשמה
@@ -68,3 +70,11 @@ export default function LoginScreen() {
     </Tile>
   );
 }
+
+export const styles = StyleSheet.create({
+  greyText: {
+    marginTop: 20,
+    color: "gray",
+    textAlign: "center",
+  },
+});

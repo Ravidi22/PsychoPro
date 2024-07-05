@@ -1,11 +1,8 @@
-import { submitCodeStyles } from "@/styles/authStyles";
-import { commonStyles } from "@/styles/commonStyles";
 import React, { useRef, useState } from "react";
 import {
   View,
   TextInput,
-  Text,
-  TouchableOpacity,
+  StyleSheet,
   NativeSyntheticEvent,
   TextInputKeyPressEventData,
 } from "react-native";
@@ -60,12 +57,12 @@ const SubmitCode = (props: SubmitCodeProps) => {
           alignItems: "center",
         }}
       >
-        <View style={submitCodeStyles.container}>
+        <View style={styles.container}>
           {code.map((digit, index) => (
             <TextInput
               key={index}
               ref={(el: TextInput) => (inputRefs.current[index] = el)}
-              style={submitCodeStyles.input}
+              style={styles.input}
               maxLength={1}
               keyboardType="numeric"
               value={digit}
@@ -79,7 +76,7 @@ const SubmitCode = (props: SubmitCodeProps) => {
         <Typography bold>שלח</Typography>
       </Button>
 
-      <Typography style={commonStyles.greyText}>
+      <Typography style={styles.greyText}>
         לא קיבלתי{" "}
         <Typography bold style={{ color: "#FFA726" }} onPress={() => {}}>
           שליחה חוזרת
@@ -88,5 +85,28 @@ const SubmitCode = (props: SubmitCodeProps) => {
     </TileItem>
   );
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 20,
+    width: "80%",
+  },
+  input: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "gray",
+    textAlign: "center",
+    fontSize: 18,
+  },
+  greyText: {
+    marginTop: 20,
+    color: "gray",
+    textAlign: "center",
+  },
+});
 
 export default SubmitCode;

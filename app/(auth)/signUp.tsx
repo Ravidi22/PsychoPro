@@ -1,12 +1,13 @@
 import TextField from "@/components/TextField";
 import { useState } from "react";
-import { commonStyles } from "@/styles/commonStyles";
 import { useRouter } from "expo-router";
 import { useAuth } from "@/hooks/useAuth";
 import Tile from "@/components/layaot/Tile";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
-import { View } from "react-native";
+import { StyleSheet } from "react-native";
+import { HeaderShape } from "@/components/HeaderShape";
+import { useTheme } from "@/context/theme";
 
 export interface SignUpDetails {
   fullName: string;
@@ -17,6 +18,7 @@ export interface SignUpDetails {
 
 export default function SignUpScreen() {
   const { handleSignUp } = useAuth();
+  const { theme } = useTheme();
   const router = useRouter();
 
   const [signUpDetails, setSignUpDetails] = useState<SignUpDetails>({
@@ -28,7 +30,7 @@ export default function SignUpScreen() {
 
   return (
     <Tile>
-      <View style={commonStyles.headerShape} />
+      <HeaderShape />
       <Typography bold size={24} style={{ marginBottom: 8 }}>
         יצירת חשבון
       </Typography>
@@ -48,7 +50,6 @@ export default function SignUpScreen() {
         keyboardType="email-address"
       />
       <TextField
-        style={commonStyles.input}
         placeholder="סיסמה"
         value={signUpDetails.password}
         onChangeText={(value) =>
@@ -67,11 +68,11 @@ export default function SignUpScreen() {
       <Button onPress={() => handleSignUp(signUpDetails)}>
         <Typography bold>הרשמה</Typography>
       </Button>
-      <Typography style={commonStyles.greyText}>
+      <Typography style={styles.greyText}>
         כבר יש משתמש?{" "}
         <Typography
           bold
-          style={{ color: "#FFA726" }}
+          style={{ color: theme.secondary }}
           onPress={() => router.replace("/(auth)/login")}
         >
           התחברות
@@ -80,3 +81,11 @@ export default function SignUpScreen() {
     </Tile>
   );
 }
+
+export const styles = StyleSheet.create({
+  greyText: {
+    marginTop: 20,
+    color: "gray",
+    textAlign: "center",
+  },
+});

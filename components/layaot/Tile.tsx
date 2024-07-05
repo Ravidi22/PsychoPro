@@ -4,17 +4,13 @@ import { View, StyleSheet } from "react-native";
 
 const Tile = ({ children }: PropsWithChildren) => {
   const { theme } = useTheme();
-  return (
-    <View style={[styles.tile, { backgroundColor: theme.primary }]}>
-      {children}
-    </View>
-  );
+  return <View style={[styles.tile]}>{children}</View>;
 };
 
 const styles = StyleSheet.create({
   tile: {
+    justifyContent: "center",
     padding: 20,
-    marginBottom: 10,
     flex: 1,
   },
 });

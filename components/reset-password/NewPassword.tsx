@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
 import TextField from "../TextField";
-import { commonStyles } from "@/styles/commonStyles";
 import TileItem from "../layaot/TileItem";
 import Button from "../Button";
 import Typography from "../Typography";
@@ -35,7 +33,7 @@ const NewPassword = () => {
         }
         secureTextEntry
       />
-      <Button onPress={() => {}} style={commonStyles.button}>
+      <Button onPress={() => {}}>
         <Typography bold>אפס</Typography>
       </Button>
     </TileItem>
