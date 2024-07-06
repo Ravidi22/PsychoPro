@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 
-import { Categories } from "@/constants/Categories";
+import { Categories } from "@/constants/Subjects";
 import { useSelectedSubjectStore } from "@/store/useSelectedSubjectStore";
 import Icon from "../../../Icon";
 import Typography from "@/components/Typography";

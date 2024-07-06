@@ -1,6 +1,6 @@
 import Typography from "@/components/Typography";
 import { Subject } from "@/store/useSelectedSubjectStore";
-import { View, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 
 interface SubjectStatisticProps {

@@ -1,13 +1,35 @@
-export const lightTheme = {
-  primary: "#8de9d5",
-  secondary: "#32c4c0",
+interface Theme {
+  primary: string;
+  primaryVariant: string;
+  secondary: string;
+  secondaryVariant: string;
+  background: string;
+  surface: string;
+  error: string;
+  grey: string;
+  text: string;
+}
+
+export const lightTheme: Theme = {
+  primary: "#6200EE",
+  primaryVariant: "#3700B3",
+  secondary: "#03DAC6",
+  secondaryVariant: "#018786",
+  background: "#F3F3F3",
+  surface: "#F3F3F3",
+  error: "#B00020",
+  grey: "#BDBDBD",
   text: "#000000",
-  background: "#FFFFFF",
 };
 
-export const darkTheme = {
+export const darkTheme: Theme = {
   primary: "#BB86FC",
+  primaryVariant: "#3700B3",
   secondary: "#03DAC6",
-  text: "#FFFFFF",
+  secondaryVariant: "#03DAC6",
   background: "#121212",
+  surface: "#121212",
+  error: "#CF6679",
+  grey: "#BDBDBD",
+  text: "#E2E2E2",
 };

@@ -1,6 +1,5 @@
 import SubjectStatistic from "./sections/SubjectStatistic";
 import { useRouter } from "expo-router";
-import TileItem from "@/components/layaot/TileItem";
 import { useSelectedSubjectStore } from "@/store/useSelectedSubjectStore";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";

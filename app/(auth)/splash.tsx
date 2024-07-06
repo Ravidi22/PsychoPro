@@ -1,10 +1,10 @@
-import BackgroundScreen from "@/components/BackGround";
+import Background from "@/components/Background";
 import React from "react";
 import { Image, View } from "react-native";
 
 export default function SplashScreen() {
   return (
-    <BackgroundScreen>
+    <Background>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Image
           source={require("../../assets/images/snail.png")}
@@ -12,6 +12,6 @@ export default function SplashScreen() {
           resizeMode="contain"
         />
       </View>
-    </BackgroundScreen>
+    </Background>
   );
 }

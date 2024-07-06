@@ -7,7 +7,6 @@ import useSplashScreen from "@/hooks/useSplashScreen";
 import { ThemeProvider } from "@/context/theme";
 import { Provider as PaperProvider } from "react-native-paper";
 import Snackbar from "@/components/Snackbar";
-import Background from "@/components/BackGround";
 
 export default function RootLayout() {
   const isSplashVisible = useSplashScreen();
@@ -24,10 +23,8 @@ function RootLayoutNav() {
     <PaperProvider>
       <AuthProvider>
         <ThemeProvider>
-          <Background>
-            <Slot />
-            <Snackbar />
-          </Background>
+          <Slot />
+          <Snackbar />
         </ThemeProvider>
       </AuthProvider>
     </PaperProvider>
