@@ -1,16 +1,25 @@
+import { useTheme } from "@/context/theme";
 import { ReactNode } from "react";
-import { TextInputProps, TextInput, View, StyleSheet } from "react-native";
+import {
+  TextInputProps,
+  TextInput,
+  View,
+  StyleSheet,
+  ViewStyle,
+} from "react-native";
 
 interface TextFieldProps extends TextInputProps {
   sideIcon?: ReactNode;
   sideIconButton?: ReactNode;
+  containerStyle?: ViewStyle;
 }
 
 const TextField = (props: TextFieldProps) => {
+  const { theme } = useTheme();
   return (
-    <View style={styles.inputContainer}>
+    <View style={{ ...styles.inputContainer, ...props.containerStyle }}>
       {props.sideIcon}
-      <TextInput {...props} style={styles.Input} />
+      <TextInput {...props} style={[styles.Input, { color: theme.text }]} />
       {props.sideIconButton}
     </View>
   );

@@ -1,15 +1,19 @@
+import { useTheme } from "@/context/theme";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
 const Divider = () => {
-  return <View style={styles.separator} />;
+  const { theme } = useTheme();
+
+  return <View style={[styles.separator, { backgroundColor: theme.grey }]} />;
 };
 
 const styles = StyleSheet.create({
   separator: {
     marginVertical: 5,
     height: 1,
-    width: "100%",
+    width: "80%",
+    alignSelf: "center",
   },
 });
 

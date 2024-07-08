@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 
-import { Categories } from "@/constants/Subjects";
+import { Subjects } from "@/constants/Subjects";
 import { useSelectedSubjectStore } from "@/store/useSelectedSubjectStore";
 import Icon from "../../../Icon";
 import Typography from "@/components/Typography";
@@ -18,7 +18,7 @@ const SubjectScrollList = () => {
     <ScrollView>
       <FlatList
         horizontal
-        data={Categories}
+        data={Subjects}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity

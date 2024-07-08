@@ -1,22 +1,36 @@
+import { useTheme } from "@/context/theme";
 import { PropsWithChildren } from "react";
-import { StyleSheet, TextStyle, View, ViewStyle } from "react-native";
+import {
+  TextStyle,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ViewStyle,
+} from "react-native";
 
-interface TileItemProps extends PropsWithChildren {
+interface TileItemProps extends PropsWithChildren, TouchableOpacityProps {
   column?: boolean;
   style?: ViewStyle | TextStyle;
 }
 
 const TileItem = (props: TileItemProps) => {
-  const styles = StyleSheet.create({
-    container: {
-      padding: 10,
-      flexDirection: props.column ? "column" : "row",
-      ...props.style,
-      borderRadius: 20,
-    },
-  });
+  const { theme } = useTheme();
+  const container: ViewStyle = {
+    backgroundColor: theme.surface,
+    borderRadius: 8,
+    padding: 16,
+    margin: 8,
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: props.column ? "column" : "row",
+    ...props.style,
+  };
 
-  return <View style={styles.container}>{props.children}</View>;
+  return (
+    <TouchableOpacity {...props} style={container}>
+      {props.children}
+    </TouchableOpacity>
+  );
 };
 
 export default TileItem;

@@ -10,7 +10,9 @@ import {
   Feather,
   Foundation,
   FontAwesome6,
+  AntDesign,
 } from "@expo/vector-icons";
+import { useTheme } from "@/context/theme";
 
 export type IconLibrary =
   | "Ionicons"
@@ -20,7 +22,8 @@ export type IconLibrary =
   | "Fontisto"
   | "MaterialCommunityIcons"
   | "Feather"
-  | "Foundation";
+  | "Foundation"
+  | "AntDesign";
 
 type IconProps = {
   name: string;
@@ -30,13 +33,10 @@ type IconProps = {
   style?: ViewStyle | TextStyle;
 };
 
-const Icon: React.FC<IconProps> = ({
-  name,
-  library,
-  size = 24,
-  color = "black",
-  style,
-}) => {
+const Icon = (props: IconProps) => {
+  const { theme } = useTheme();
+
+  const { name, library, size = 24, color = theme.text, style } = props;
   let IconComponent;
 
   switch (library) {
@@ -63,6 +63,9 @@ const Icon: React.FC<IconProps> = ({
       break;
     case "Foundation":
       IconComponent = Foundation;
+      break;
+    case "AntDesign":
+      IconComponent = AntDesign;
       break;
     default:
       throw new Error(`Unknown icon library: ${library}`);

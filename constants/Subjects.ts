@@ -6,7 +6,7 @@ export interface Icon {
   library: IconLibrary;
 }
 
-export const Categories: Array<Subject & { icon: Icon } & { color: string }> = [
+export const Subjects: Array<Subject & { icon: Icon } & { color: string }> = [
   {
     id: "0",
     label: "אחוזים",
