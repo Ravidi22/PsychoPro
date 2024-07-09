@@ -19,7 +19,7 @@ const Typography = (props: TypographyProps) => {
 
   return (
     <Text
-      style={[dynamicStyles, { fontFamily: "SpaceMono" }]}
+      style={[dynamicStyles, { fontFamily: "Rubik" }]}
       onPress={props.onPress}
     >
       {props.children}

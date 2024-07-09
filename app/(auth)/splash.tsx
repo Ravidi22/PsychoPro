@@ -7,7 +7,7 @@ export default function SplashScreen() {
     <Background>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Image
-          source={require("../../assets/images/snail.png")}
+          source={require("../../assets/images/snailOutline.png")}
           style={{ width: "90%", height: "90%" }}
           resizeMode="contain"
         />

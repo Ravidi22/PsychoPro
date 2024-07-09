@@ -9,12 +9,12 @@ const Button = (props: TouchableOpacityProps) => {
     <TouchableOpacity
       onPress={props.onPress}
       style={{
-        backgroundColor: theme.secondary,
-        maxWidth: "40%",
+        backgroundColor: theme.surface,
         padding: 15,
         borderRadius: 25,
         alignItems: "center",
         marginTop: 20,
+        ...(props.style as Object),
       }}
     >
       {props.children}

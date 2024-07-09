@@ -6,6 +6,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 export default function useSplashScreen() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    Rubik: require("../assets/fonts/Rubik-Regular.ttf"),
     ...FontAwesome.font,
   });
 

@@ -27,7 +27,6 @@ export default function TabLayout() {
         name="practice"
         options={{
           title: "תרגול",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerShown: false,
         }}
       />
@@ -35,7 +34,6 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "בית",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerShown: false,
         }}
       />
@@ -43,7 +41,6 @@ export default function TabLayout() {
         name="learn"
         options={{
           title: "למידה",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerShown: false,
         }}
       />

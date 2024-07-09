@@ -48,16 +48,10 @@ const TabBarButton = (props: TabBarButtonProps) => {
     };
   });
 
-  const icons = {
-    index: (props: any) => (
-      <AntDesign name="home" size={26} color={"#737373"} {...props} />
-    ),
-    practice: (props: any) => (
-      <AntDesign name="edit" size={26} color={"#737373"} {...props} />
-    ),
-    learn: (props: any) => (
-      <AntDesign name="book" size={26} color={"#737373"} {...props} />
-    ),
+  const icons: Record<string, any> = {
+    index: (props: any) => <AntDesign name="home" size={26} {...props} />,
+    practice: (props: any) => <AntDesign name="edit" size={26} {...props} />,
+    learn: (props: any) => <AntDesign name="book" size={26} {...props} />,
   };
   return (
     <Pressable {...props} style={styles.container}>

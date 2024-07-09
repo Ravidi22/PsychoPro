@@ -5,7 +5,13 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "userInterfaceStyle": "light"
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-font",
+      {
+        "fonts": ["./assets/fonts/Rubik.ttf"]
+      }
+    ]
   },
   "ios": {
     "supportsTablet": true

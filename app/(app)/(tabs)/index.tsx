@@ -1,6 +1,7 @@
 import Background from "@/components/Background";
 import EvenlySpacedElement from "@/components/layaot/EvenlySpacedElement";
 import TileItem from "@/components/layaot/TileItem";
+import PieChart from "@/components/PieChart";
 import ProgressTile from "@/components/ProgressTile";
 import TextField from "@/components/TextField";
 import ThemeToggle from "@/components/theme/ThemeToggle";
@@ -40,7 +41,18 @@ export default function HomeScreen() {
                 קצת תוצאות:
               </Typography>
             </EvenlySpacedElement>
-            <TileItem>{/* pai chart */}</TileItem>
+            <TileItem
+              style={{ width: "80%", paddingVertical: 100, borderRadius: 25 }}
+            >
+              <PieChart
+                data={[
+                  { value: 30, color: theme.secondary },
+                  { value: 30, color: theme.primary },
+                  { value: 30, color: theme.grey },
+                ]}
+                percent="20%"
+              />
+            </TileItem>
             <ProgressTile progress={50} label="תרגולים" />
             <ProgressTile progress={50} label="חומרי לימוד" />
           </EvenlySpacedElement>
@@ -53,6 +65,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 20,
   },
   welcomeContainer: {
     paddingHorizontal: 20,

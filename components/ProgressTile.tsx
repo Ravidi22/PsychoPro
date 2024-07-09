@@ -16,8 +16,8 @@ const ProgressTile = (props: ProgressTileProps) => {
   const { theme } = useTheme();
 
   return (
-    <TileItem style={{ width: "80%", padding: 30 }}>
-      <EvenlySpacedElement gap={15} style={{ width: "100%" }}>
+    <TileItem style={{ width: "80%", padding: 0 }}>
+      <EvenlySpacedElement style={{ width: "100%" }}>
         <Icon name="left" size={20} library={"AntDesign"} />
         <EvenlySpacedElement column style={{ alignItems: "flex-end" }}>
           <EvenlySpacedElement>

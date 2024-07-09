@@ -4,11 +4,15 @@ import { useAuthStore } from "@/store/useAuthStore";
 import useSnackbarStore from "@/store/useSnackbarStore";
 import { emailRegex } from "@/utils/Regex";
 import { HttpStatusCode } from "axios";
+import { useRouter } from "expo-router";
 
 export const useAuth = () => {
   const { showSnackbar } = useSnackbarStore();
   const { logIn, signUp } = useAuthStore();
+  const router = useRouter();
+
   const handleLogin = async (details: LoginDetails) => {
+    router.replace("/(tabs)/welcome");
     const res = await logIn(details.email, details.password);
     if (res !== HttpStatusCode.Ok)
       showSnackbar("שם משתמש או סיסמה שגויים", "error");
